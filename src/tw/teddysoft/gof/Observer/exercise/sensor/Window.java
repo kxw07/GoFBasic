@@ -1,4 +1,4 @@
-package tw.teddysoft.gof.Observer.exercise;
+package tw.teddysoft.gof.Observer.exercise.sensor;
 
 public class Window {
 	public Window(String ipAddress){}

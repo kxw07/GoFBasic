@@ -1,4 +1,8 @@
-package tw.teddysoft.gof.Observer.exercise;
+package tw.teddysoft.gof.Observer.exercise.command;
+
+import tw.teddysoft.gof.Observer.exercise.Result;
+import tw.teddysoft.gof.Observer.exercise.Status;
+import tw.teddysoft.gof.Observer.exercise.sensor.Thermal;
 
 public class ThermalCommand implements Command {
 	private Thermal thermal = null;

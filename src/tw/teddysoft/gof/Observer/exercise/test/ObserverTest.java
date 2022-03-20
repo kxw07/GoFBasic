@@ -2,14 +2,22 @@
  * Copyright 2016 TeddySoft Technology. All rights reserved.
  * 
  */
-package tw.teddysoft.gof.Observer.exercise;
+package tw.teddysoft.gof.Observer.exercise.test;
 
 import org.junit.Test;
+import tw.teddysoft.gof.Observer.exercise.*;
+import tw.teddysoft.gof.Observer.exercise.command.DoorCommand;
+import tw.teddysoft.gof.Observer.exercise.Server;
+import tw.teddysoft.gof.Observer.exercise.observer.Observer;
+import tw.teddysoft.gof.Observer.exercise.observer.SendingAlertObserver;
+import tw.teddysoft.gof.Observer.exercise.observer.Subject;
+import tw.teddysoft.gof.Observer.exercise.observer.WritingLogObserver;
+import tw.teddysoft.gof.Observer.exercise.sensor.Door;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.stream.Stream;
 
 public class ObserverTest {
 	class MockRemoteDoor extends Door {
@@ -69,9 +77,8 @@ public class ObserverTest {
 		Server server = new Server();
 		server.addClient(client);
 		server.monitor();
-		String expected = "發現問題並通知保全人員: 門被開啟\n"
-										+ "寫資料到資料庫: 門被開啟";
-		assertTrue(stream.toString().startsWith(expected));
+		assertTrue(stream.toString().contains("發現問題並通知保全人員: 門被開啟"));
+		assertTrue(stream.toString().contains("寫資料到資料庫: 門被開啟"));
 	}
 	
 	@Test

@@ -50,7 +50,12 @@ public class DoorCommandTest {
 
 	@Test
 	public void tes_LambdaCommand_DoorClose() {
-		Command doorCmd = () -> new Result(Status.OK);
+		Command doorCmd = new Command() {
+			@Override
+			public Result execute() {
+				return new Result(Status.OK);
+			}
+		};
 		Result result = doorCmd.execute();
 		assertEquals(Status.OK, result.getStatus());
 		assertTrue(result.getMessage().isEmpty());

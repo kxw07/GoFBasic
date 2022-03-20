@@ -2,7 +2,7 @@
  * Copyright 2016 TeddySoft Technology. All rights reserved.
  * 
  */
-package tw.teddysoft.gof.Observer.exercise;
+package tw.teddysoft.gof.Observer.exercise.sensor;
 
 public class Thermal {
 	public Thermal(String ipAddress){}

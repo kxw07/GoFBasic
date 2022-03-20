@@ -21,7 +21,7 @@ public class SimpleDriveFactoryTest {
 	}
 	
 	@Test
-	public void create_unsported_drive_SASDrive_via_SimpleDriveFactory_will_thorw_a_runtime_exception() {
+	public void create_unsupported_drive_SASDrive_via_SimpleDriveFactory_will_thorw_a_runtime_exception() {
 		
 		try{
 			new SimpleDriveFactory().createDrive("SAS", 0);

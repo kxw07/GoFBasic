@@ -7,28 +7,9 @@ package tw.teddysoft.gof.SimpleFactory.exercise;
 public class DriveManager {
 
 	Drive getDrive(String type, int index){
-		Drive drive = null;
-		switch(type){
-			case "SATA":
-				drive = new SATADrive(index);
-				break;
-			case "USB":
-				drive = new USBDrive(index);
-				break;
-			default:
-				throw new RuntimeException
-				("Unsupported drive type: " + type);
-		}
+		Drive drive = new SimpleDriveFactory().createDrive(type, index);
 		drive.updateFreeSpace();
 		drive.doQuickSMARTCheck();
 		return drive;
 	}
-	
-//	Drive getDrive(String type, int index){
-//		Drive drive = new Drive(WMI.getDrive(index));
-//		drive.updateFreeSpace();
-//		drive.doQuickSMARTCheck();
-//		return drive;
-//	}
-	
 }

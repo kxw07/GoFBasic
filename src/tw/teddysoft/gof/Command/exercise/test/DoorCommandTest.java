@@ -2,8 +2,13 @@
  * Copyright 2016 TeddySoft Technology. All rights reserved.
  * 
  */
-package tw.teddysoft.gof.Command.exercise;
+package tw.teddysoft.gof.Command.exercise.test;
+import org.junit.Assert;
 import org.junit.Test;
+import tw.teddysoft.gof.Command.exercise.*;
+import tw.teddysoft.gof.Command.exercise.command.Command;
+import tw.teddysoft.gof.Command.exercise.command.DoorCommand;
+import tw.teddysoft.gof.Command.exercise.sensor.Door;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -30,7 +35,7 @@ public class DoorCommandTest {
 		Door door = new MockRemoteDoor("192.168.0.1", "open");
 		Command doorCmd = new DoorCommand(door);
 		Result result = doorCmd.execute();
-		assertEquals(Status.CRITICAL, result.getStatus());
+		Assert.assertEquals(Status.CRITICAL, result.getStatus());
 		assertTrue(result.getMessage().startsWith("門被打開"));
 	}
 
@@ -55,7 +60,7 @@ public class DoorCommandTest {
 	public void testServer() {
 		Server server = new Server();
 		Door door = new MockRemoteDoor("192.168.0.1", "open");
-		Client client = new Client(new DoorCommand(door));
+		Client<Command> client = new Client(new DoorCommand(door));
 		server.addClient(client);
 		server.monitor();
 	}

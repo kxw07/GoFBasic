@@ -1,5 +1,7 @@
 package tw.teddysoft.gof.Command.exercise;
 
+import tw.teddysoft.gof.Command.exercise.command.Command;
+
 import java.util.ArrayList;
 import java.util.List;
 

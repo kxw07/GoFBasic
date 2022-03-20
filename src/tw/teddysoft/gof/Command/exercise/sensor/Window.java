@@ -1,4 +1,4 @@
-package tw.teddysoft.gof.Command.exercise;
+package tw.teddysoft.gof.Command.exercise.sensor;
 
 public class Window {
 

@@ -1,4 +1,8 @@
-package tw.teddysoft.gof.Command.exercise;
+package tw.teddysoft.gof.Command.exercise.command;
+
+import tw.teddysoft.gof.Command.exercise.sensor.Door;
+import tw.teddysoft.gof.Command.exercise.Result;
+import tw.teddysoft.gof.Command.exercise.Status;
 
 public class DoorCommand implements Command {
 

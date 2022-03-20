@@ -7,15 +7,19 @@ public class Client<T> {
 	public Client(T command) {
 		this.checkCommand = command;
 	}
+
 	public void setCurrentResult(Result result) {
 		currentResult = result;
 	}
+
 	public Result getCurrentResult() {
 		return currentResult;
 	}
+
 	public void setCheckCommand(T command) {
 		this.checkCommand = command;
 	}
+
 	public T getCheckCommand() {
 		return checkCommand;
 	}

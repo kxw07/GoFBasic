@@ -31,8 +31,9 @@ public class DoorCommandTest {
 		Command doorCmd = new DoorCommand(door);
 		Result result = doorCmd.execute();
 		assertEquals(Status.CRITICAL, result.getStatus());
-		assertTrue(result.getMessage().startsWith("門被開啟"));
+		assertTrue(result.getMessage().startsWith("門被打開"));
 	}
+
 	@Test
 	public void testCommand_DoorClose() {
 		Door door = new MockRemoteDoor("192.168.0.1", "not open");
@@ -43,18 +44,13 @@ public class DoorCommandTest {
 	}
 
 	@Test
-	public void testＬLambdaCommand_DoorClose() {
-		Command doorCmd = () -> {
-			Result result = new Result();
-			result.setStatus(HostState.OK);
-			return result;
-		};
+	public void tes_LambdaCommand_DoorClose() {
+		Command doorCmd = () -> new Result(Status.OK);
 		Result result = doorCmd.execute();
 		assertEquals(Status.OK, result.getStatus());
 		assertTrue(result.getMessage().isEmpty());
 	}
 
-	
 	@Test
 	public void testServer() {
 		Server server = new Server();

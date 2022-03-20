@@ -4,14 +4,19 @@
  */
 package tw.teddysoft.gof.FactoryMethod.exercise;
 
-public class Drive {
-	
-	public Drive(int index){
-	}
-	
-	public void updateFreeSpace() {
+abstract class Drive {
+
+	private final int index;
+
+	Drive(int index) {
+		this.index = index;
 	}
 
-	public void doQuickSMARTCheck() {
+	protected void updateFreeSpace() {
+		System.out.println("updateFreeSpace");
+	}
+
+	protected void doQuickSMARTCheck() {
+		System.out.println("doQuickSMARTCheck");
 	}
 }

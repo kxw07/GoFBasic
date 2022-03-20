@@ -37,12 +37,10 @@ public class ConfigParserTest {
 		PersonData fpd = fileParser.doParse();
 		assertEquals("Teddy", fpd.getName());
 		assertEquals(100, fpd.getHP());
-		String expected = "Read config data from file: "
-				+ "C:\\config.ini\n"
-				+ "parseToken...\n"
-				+ "validate config data built from file...\n";
+		String expected = "Read config data from file: C:\\config.ini parseToken... validate config data built from file...\n";
 		assertEquals(expected, stream.toString());
 	}
+
 	@Test
 	public void testDBConfigParser(){
 		ConfigParser dbParser = new 
@@ -50,10 +48,7 @@ public class ConfigParserTest {
 		PersonData dbpd = dbParser.doParse();
 		assertEquals("Kay", dbpd.getName());
 		assertEquals(100, dbpd.getHP());
-		String expected = "Read config data from database: "
-				+ "http://127.0.0.1/hsql/mydb\n"
-				+ "parseToken...\n"
-				+ "validate config data built from database...\n";
+		String expected = "Read config data from database: http://127.0.0.1/hsql/mydb parseToken... validate config data built from database...\n";
 		assertEquals(expected, stream.toString());
 	}
 }

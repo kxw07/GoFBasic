@@ -6,21 +6,21 @@ package tw.teddysoft.gof.Strategy.exercise;
 
 public class DriveManager {
 	public void format(FileSystemEnum fileSystem){
+		createFormatter(fileSystem).format();
+	}
+
+	private Formatter createFormatter(FileSystemEnum fileSystem) {
 		switch(fileSystem){
-		case NTFS: 
-			formatNtfs();
-			break;
-		case FAT32: 
-			formatFat32();
-			break;			
-		case FAT: 
-			formatFat();
-			break;				
+			case NTFS:
+				return new NTFSFormatter();
+			case FAT32:
+				return new FAT32Formatter();
+			case FAT:
+				return new FATFormatter();
+			default:
+				throw new RuntimeException("Unsupported type");
 		}
 	}
-	private void formatNtfs() {}
-	private void formatFat32() {}
-	private void formatFat() {}
 }
 
 

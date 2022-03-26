@@ -19,15 +19,15 @@ public class DriveManagerTest {
 		System.setOut(printStream);
 		DriveManager dm = new DriveManager();
 		
-		dm.format("Ntfs");
+		dm.format(FileSystemEnum.NTFS);
 		assertEquals("格式化為NTFS", stream.toString().trim());
 		stream.reset();
 		
-		dm.format("Fat32");
+		dm.format(FileSystemEnum.FAT32);
 		assertEquals("格式化為FAT32", stream.toString().trim());
 		stream.reset();
 		
-		dm.format("Fat");
+		dm.format(FileSystemEnum.FAT);
 		assertEquals("格式化為FAT", stream.toString().trim());
 	}
 }

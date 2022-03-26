@@ -23,45 +23,45 @@ public class HostStateTransitionTest {
 	@Test
 	public void test_down_transition() {
 		Host host = new Host(new DownCommand());
-		assertEquals(HostState.UP_HARD, host.getState());
+		assertEquals(Host.UP_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.DOWN_SOFT, host.getState());
+		assertEquals(Host.DOWN_SOFT, host.getState());
 		host.check();
-		assertEquals(HostState.DOWN_SOFT, host.getState());		
+		assertEquals(Host.DOWN_SOFT, host.getState());		
 		host.check();
-		assertEquals(HostState.DOWN_HARD, host.getState());
+		assertEquals(Host.DOWN_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.DOWN_HARD, host.getState());
+		assertEquals(Host.DOWN_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.DOWN_HARD, host.getState());
+		assertEquals(Host.DOWN_HARD, host.getState());
 		assertEquals(3, host.getAttempt());
 		
-		host.changeState(HostState.UP_SOFT);
-		assertEquals(HostState.UP_SOFT, host.getState());
+		host.changeState(Host.UP_SOFT);
+		assertEquals(Host.UP_SOFT, host.getState());
 		host.check();
-		assertEquals(HostState.DOWN_HARD, host.getState());
+		assertEquals(Host.DOWN_HARD, host.getState());
 	}
 	
 	@Test
 	public void test_up_transition() {
 		Host host = new Host(new UpCommand());
-		host.changeState(HostState.DOWN_HARD);
-		assertEquals(HostState.DOWN_HARD, host.getState());
+		host.changeState(Host.DOWN_HARD);
+		assertEquals(Host.DOWN_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.UP_SOFT, host.getState());
+		assertEquals(Host.UP_SOFT, host.getState());
 		host.check();
-		assertEquals(HostState.UP_SOFT, host.getState());		
+		assertEquals(Host.UP_SOFT, host.getState());		
 		host.check();
-		assertEquals(HostState.UP_HARD, host.getState());
+		assertEquals(Host.UP_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.UP_HARD, host.getState());
+		assertEquals(Host.UP_HARD, host.getState());
 		host.check();
-		assertEquals(HostState.UP_HARD, host.getState());
+		assertEquals(Host.UP_HARD, host.getState());
 		assertEquals(3, host.getAttempt());
 
-		host.changeState(HostState.DOWN_SOFT);
-		assertEquals(HostState.DOWN_SOFT, host.getState());
+		host.changeState(Host.DOWN_SOFT);
+		assertEquals(Host.DOWN_SOFT, host.getState());
 		host.check();
-		assertEquals(HostState.UP_HARD, host.getState());
+		assertEquals(Host.UP_HARD, host.getState());
 	}
 }

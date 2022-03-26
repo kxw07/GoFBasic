@@ -49,7 +49,7 @@ public class HostFunctionTest {
 	@Test
 	public void test_down_soft_state() {
 		Host host = new Host(null);
-		host.changeState(HostState.DOWN_SOFT);
+		host.changeState(Host.DOWN_SOFT);
 		
 		host.powerOn();
 		assertEquals("Cannot power on under down soft state.", stream.toString().trim());
@@ -65,7 +65,7 @@ public class HostFunctionTest {
 	@Test
 	public void test_down_hard_state() {
 		Host host = new Host(null);
-		host.changeState(HostState.DOWN_HARD);
+		host.changeState(Host.DOWN_HARD);
 		
 		host.powerOn();
 		assertEquals("Power On.", stream.toString().trim());
@@ -81,7 +81,7 @@ public class HostFunctionTest {
 	@Test
 	public void test_up_soft_state() {
 		Host host = new Host(null);
-		host.changeState(HostState.UP_SOFT);
+		host.changeState(Host.UP_SOFT);
 		
 		host.powerOn();
 		assertEquals("Cannot power on under up soft state.", stream.toString().trim());

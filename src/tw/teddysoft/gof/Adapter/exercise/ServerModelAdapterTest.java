@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ServerModelAdapterTest {
-	private ServerModelAdapter adapter;
+	private ServerModelContext adapter;
 	
 	@Before
 	public void setup(){

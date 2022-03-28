@@ -1,7 +1,5 @@
 package tw.teddysoft.gof.Adapter.exercise;
 
-import com.sun.deploy.net.MessageHeader;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

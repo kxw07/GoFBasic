@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class AgentModelAdapterTest {
-    private AgentModelAdapter adapter;
+    private AgentModelContext adapter;
 
     @Before
     public void setup() {
@@ -29,14 +29,14 @@ public class AgentModelAdapterTest {
     public void can_set_an_agent() {
         Agent agent = new Agent();
         adapter.setAgent(agent);
-        assertEquals(agent, adapter.getAgent(agent));
+        assertEquals(agent, adapter.getAgent());
     }
 
     @Test
     public void invoke_getAgent_will_throw_an_exception_if_not_call_setAgent_first() {
         Agent agent = new Agent();
         try {
-            assertEquals(agent, adapter.getAgent(agent));
+            assertEquals(agent, adapter.getAgent());
         } catch (RuntimeException e) {
             assertEquals("No Agent found.", e.getMessage());
         }

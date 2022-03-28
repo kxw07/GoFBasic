@@ -6,6 +6,6 @@ package tw.teddysoft.gof.Adapter.exercise;
 
 public class ConfigObject {
 	String getKey(){
-		return this.getClass().toString() + "." + this.toString();
+		return this.getClass().toString() + "." + this;
 	}
 }

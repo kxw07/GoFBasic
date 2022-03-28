@@ -1,5 +1,8 @@
 package tw.teddysoft.gof.Adapter.exercise;
 
+import com.sun.deploy.net.MessageHeader;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -17,7 +20,17 @@ public class AgentModelAdapter implements AgentModelContext {
 
     @Override
     public Collection<Acceptor> getAcceptors() {
-        return this.configContext.getAllObjects();
+        final List<Acceptor> list = new ArrayList();
+
+        final List<ConfigObject> allObjects = this.configContext.getAllObjects();
+
+        for (ConfigObject configObject : allObjects) {
+            if (configObject instanceof Acceptor) {
+                list.add((Acceptor)configObject);
+            }
+        }
+
+        return list;
     }
 
     @Override
@@ -30,7 +43,7 @@ public class AgentModelAdapter implements AgentModelContext {
         final List<ConfigObject> allObjects = this.configContext.getAllObjects();
         for (ConfigObject configObject : allObjects) {
             if (configObject instanceof Agent) {
-                return (Agent)configObject;
+                return (Agent) configObject;
             }
         }
 
